@@ -7,6 +7,6 @@ namespace FoodData
     public interface IAmountRepository
     {
 
-
+        Amount CreateAmount(int measurementID, int nutrientID, int foodID, int amountNum);
     }
 }
