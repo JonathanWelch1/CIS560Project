@@ -4,9 +4,9 @@ using FoodData.Model;
 
 namespace FoodData
 {
-    public interface IFoodRepository
+    public interface IAmountRepository
     {
 
-        Food CreateFood(int categoryID, int foodID, string name);
+
     }
 }
