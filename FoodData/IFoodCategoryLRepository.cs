@@ -6,7 +6,9 @@ namespace FoodData
 {
     public interface IFoodCategoryLRepository
     {
+        IReadOnlyList<FoodCategoryL> RetreiveFoodCategories(int FoodID);
 
-        FoodCategoryL CreateFoodCategory(int categoryID, int foodID);
+
+        void CreateFoodCategory(int categoryID, int foodID);
     }
 }

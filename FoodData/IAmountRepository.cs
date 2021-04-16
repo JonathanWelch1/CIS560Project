@@ -6,7 +6,9 @@ namespace FoodData
 {
     public interface IAmountRepository
     {
+        IReadOnlyList<Amount> RetrieveAmount(int nutrientID);
 
-        Amount CreateAmount(int measurementID, int nutrientID, int foodID, int amountNum);
+
+        void CreateAmount(int measurementID, int nutrientID, int foodID, int amountNum);
     }
 }

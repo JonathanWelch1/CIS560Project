@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jonathan Welch\\Source\\Repos\\CIS560Project\\FoodData\\FoodData.csproj": {}
+    "C:\\Users\\Jonathan Welch\\source\\repos\\CIS560Project\\FoodData\\FoodData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jonathan Welch\\Source\\Repos\\CIS560Project\\FoodData\\FoodData.csproj": {
+    "C:\\Users\\Jonathan Welch\\source\\repos\\CIS560Project\\FoodData\\FoodData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jonathan Welch\\Source\\Repos\\CIS560Project\\FoodData\\FoodData.csproj",
+        "projectUniqueName": "C:\\Users\\Jonathan Welch\\source\\repos\\CIS560Project\\FoodData\\FoodData.csproj",
         "projectName": "FoodData",
-        "projectPath": "C:\\Users\\Jonathan Welch\\Source\\Repos\\CIS560Project\\FoodData\\FoodData.csproj",
+        "projectPath": "C:\\Users\\Jonathan Welch\\source\\repos\\CIS560Project\\FoodData\\FoodData.csproj",
         "packagesPath": "C:\\Users\\Jonathan Welch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jonathan Welch\\Source\\Repos\\CIS560Project\\FoodData\\obj\\",
+        "outputPath": "C:\\Users\\Jonathan Welch\\source\\repos\\CIS560Project\\FoodData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
