@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using FoodData.Model;
 
 namespace FoodData
 {
-    class IFoodRepository
+    public interface IFoodRepository
     {
+        IReadOnlyList<Food> RetrieveFoods();
+
+        Food FetchFood(int foodID);
+
+        Food GetFood(string name);
+
+        Food CreateFood(int categoryID, int foodID, string name);
     }
 }

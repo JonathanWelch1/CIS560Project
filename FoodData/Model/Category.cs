@@ -11,13 +11,17 @@ namespace FoodData.Model
         /// </summary>
         public int CategoryID { get; }
 
+
+        public string Name { get; }
+
         /// <summary>
         /// Constructor that sets the values
         /// </summary>
         /// <param name="categoryID"></param>
-        public Category(int categoryID)
+        public Category(int categoryID, string name)
         {
             CategoryID = categoryID;
+            Name = name;
         }
 
     }

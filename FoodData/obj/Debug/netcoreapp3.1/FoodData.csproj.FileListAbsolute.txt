@@ -1,0 +1,13 @@
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\bin\Debug\netcoreapp3.1\FoodData.exe
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\bin\Debug\netcoreapp3.1\FoodData.deps.json
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\bin\Debug\netcoreapp3.1\FoodData.runtimeconfig.json
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\bin\Debug\netcoreapp3.1\FoodData.runtimeconfig.dev.json
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\bin\Debug\netcoreapp3.1\FoodData.dll
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\bin\Debug\netcoreapp3.1\FoodData.pdb
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.csprojAssemblyReference.cache
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.AssemblyInfoInputs.cache
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.AssemblyInfo.cs
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.dll
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.pdb
+C:\Users\Jonathan Welch\Source\Repos\CIS560Project\FoodData\obj\Debug\netcoreapp3.1\FoodData.genruntimeconfig.cache
