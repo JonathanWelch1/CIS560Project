@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FoodData.Model;
 using FoodData.DataDelegates;
+using DataAccess;
 
 namespace FoodData
 {
@@ -15,12 +16,12 @@ namespace FoodData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Nutrients CreatePerson(int FoodId, int MeasurementId, string NutrientName)
+        public Nutrients CreateNutrient(int measurementID, int foodID, int nutrientID, string nutrientName)
         {
-            if (string.IsNullOrWhiteSpace(NutrientName))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(firstName));
+            if (string.IsNullOrWhiteSpace(nutrientName))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(nutrientName));
 
-            var d = new CreateNutrienstDataDelegate(FoodId, MeasurementId, NutrientName);
+            var d = new CreateNutrientDataDelegate(foodID, measurementID, nutrientName);
             return executor.ExecuteNonQuery(d);
         }
 
@@ -36,7 +37,7 @@ namespace FoodData
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<Nutrients> RetrieveNutrientss()
+        public IReadOnlyList<Nutrients> RetrieveNutrients()
         {
             return executor.ExecuteReader(new RetrieveNutrientsDataDelegate());
         }

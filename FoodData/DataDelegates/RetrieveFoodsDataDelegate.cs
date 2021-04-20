@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using FoodData.Model;
+using DataAccess;
 
 namespace FoodData.DataDelegates
 {

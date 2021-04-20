@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FoodData.Model;
 using FoodData.DataDelegates;
+using DataAccess;
 
 namespace FoodData
 {
@@ -15,7 +16,7 @@ namespace FoodData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Food CreateFood(int CategoryId, string Name)
+        public Food CreateFood(int CategoryId, int FoodId, string Name)
         {
             if (string.IsNullOrWhiteSpace(Name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(Name));

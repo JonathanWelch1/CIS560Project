@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccess.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../DataAccess/DataAccess.csproj",
+      "msbuildProject": "../DataAccess/DataAccess.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "DataAccess >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\kww\\.nuget\\packages\\": {},
@@ -14,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kww\\Source\\Repos\\CIS560Project\\FoodData\\FoodData.csproj",
+      "projectUniqueName": "C:\\Users\\kww\\source\\repos\\CIS560Project\\FoodData\\FoodData.csproj",
       "projectName": "FoodData",
-      "projectPath": "C:\\Users\\kww\\Source\\Repos\\CIS560Project\\FoodData\\FoodData.csproj",
+      "projectPath": "C:\\Users\\kww\\source\\repos\\CIS560Project\\FoodData\\FoodData.csproj",
       "packagesPath": "C:\\Users\\kww\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kww\\Source\\Repos\\CIS560Project\\FoodData\\obj\\",
+      "outputPath": "C:\\Users\\kww\\source\\repos\\CIS560Project\\FoodData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -36,7 +55,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\kww\\source\\repos\\CIS560Project\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\kww\\source\\repos\\CIS560Project\\DataAccess\\DataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
