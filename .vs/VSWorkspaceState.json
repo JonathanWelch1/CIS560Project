@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\DataAccess",
-    "\\FoodData"
+    "\\FoodData",
+    "\\FoodData\\DataDelegates"
   ],
-  "SelectedNode": "\\FoodData\\IFoodRepository.cs",
+  "SelectedNode": "\\FoodData.sln",
   "PreviewInSolutionExplorer": false
 }
