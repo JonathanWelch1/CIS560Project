@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CIS560"
+    "\\DataAccess",
+    "\\FoodData"
   ],
-  "SelectedNode": "\\FoodData.sln",
+  "SelectedNode": "\\FoodData\\IFoodRepository.cs",
   "PreviewInSolutionExplorer": false
 }
