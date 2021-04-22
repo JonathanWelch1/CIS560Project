@@ -1,4 +1,0 @@
-C:\Users\Jonathan Welch\source\repos\CIS560Project\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csprojAssemblyReference.cache
-C:\Users\Jonathan Welch\source\repos\CIS560Project\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
-C:\Users\Jonathan Welch\source\repos\CIS560Project\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
-C:\Users\Jonathan Welch\source\repos\CIS560Project\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
