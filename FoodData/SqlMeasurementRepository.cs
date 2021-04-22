@@ -21,25 +21,25 @@ namespace FoodData
             if (string.IsNullOrWhiteSpace(unitMeasurement))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(unitMeasurement));
 
-            var d = new CreateMeasurementDataDelegate(foodID, nutrientID, unitMeasurement);
+            var d = new CreateMeasurementDataDelegate(foodID, nutrientID, unitMeasurement);//check translate table
             return executor.ExecuteNonQuery(d);
         }
 
-        public Measurement FetchMeasurement(int MeasurementId)
+        public Measurement FetchMeasurement(int MeasurementId, int NutrientId, int FoodId)
         {
-            var d = new FetchMeasurementDataDelegate(MeasurementId);
+            var d = new FetchMeasurementDataDelegate(NutrientId, FoodId, MeasurementId);//delegate done
             return executor.ExecuteReader(d);
         }
 
         public Measurement GetMeasurement(string UnitMeasurement)
         {
-            var d = new GetMeasurementDataDelegate(UnitMeasurement);
+            var d = new GetMeasurementDataDelegate(UnitMeasurement);//delegate done
             return executor.ExecuteReader(d);
         }
 
         public IReadOnlyList<Measurement> RetrieveMeasurement()
         {
-            return executor.ExecuteReader(new RetrieveMeasurementDataDelegate());
+            return executor.ExecuteReader(new RetrieveMeasurementDataDelegate());//delegate done
         }
     }
 }

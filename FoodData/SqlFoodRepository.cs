@@ -21,25 +21,25 @@ namespace FoodData
             if (string.IsNullOrWhiteSpace(Name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(Name));
 
-            var d = new CreateFoodDataDelegate(Name);
+            var d = new CreateFoodDataDelegate(Name); //delegate made
             return executor.ExecuteNonQuery(d);
         }
 
-        public Food FetchFood(int foodId)
+        public Food FetchFood(int foodId)//need to look at what to send to delegate
         {
-            var d = new FetchFoodDataDelegate(foodId);
+            var d = new FetchFoodDataDelegate(foodId);//delegate made
             return executor.ExecuteReader(d);
         }
 
         public Food GetFood(string Name)
         {
-            var d = new GetFoodDataDelegate(Name);
+            var d = new GetFoodDataDelegate(Name);//delegate made
             return executor.ExecuteReader(d);
         }
 
         public IReadOnlyList<Food> RetrieveFoods()
         {
-            return executor.ExecuteReader(new RetrieveFoodsDataDelegate());
+            return executor.ExecuteReader(new RetrieveFoodsDataDelegate());//delegate made
         }
     }
 }

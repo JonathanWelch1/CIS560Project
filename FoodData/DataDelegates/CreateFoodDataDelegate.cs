@@ -40,7 +40,7 @@ namespace FoodData.DataDelegates
 
         public override Food Translate(SqlCommand command)
         {
-            return new Food((int)command.Parameters["FoodId"].Value, Name);
+            return new Food((int)command.Parameters["FoodID"].Value, (int)command.Parameters["CategoryID"].Value, Name);
         }
     }
 }

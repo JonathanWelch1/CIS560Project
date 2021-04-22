@@ -7,7 +7,7 @@ using DataAccess;
 
 namespace FoodData
 {
-    class SqlNutrientsRepository : INutrientsRepository
+    class SqlNutrientsRepository : INutrientsRepository //check fetchNutrients(nutrientId)
     {
         private readonly SqlCommandExecutor executor;
 
@@ -21,25 +21,25 @@ namespace FoodData
             if (string.IsNullOrWhiteSpace(nutrientName))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(nutrientName));
 
-            var d = new CreateNutrientDataDelegate(foodID, measurementID, nutrientName);
+            var d = new CreateNutrientDataDelegate(foodID, measurementID, nutrientName);//delegate done?
             return executor.ExecuteNonQuery(d);
         }
 
-        public Nutrients FetchNutrients(int NutrientId)
+        public Nutrients FetchNutrients(int NutrientId, int MeasurementId, int FoodId)
         {
-            var d = new FetchNutrientsDataDelegate(NutrientId);
+            var d = new FetchNutrientsDataDelegate(NutrientId, FoodId, MeasurementId);//delegate done
             return executor.ExecuteReader(d);
         }
 
         public Nutrients GetNutrients(string NutrientName)
         {
-            var d = new GetNutrientsDataDelegate(NutrientName);
+            var d = new GetNutrientsDataDelegate(NutrientName);//delegate done
             return executor.ExecuteReader(d);
         }
 
         public IReadOnlyList<Nutrients> RetrieveNutrients()
         {
-            return executor.ExecuteReader(new RetrieveNutrientsDataDelegate());
+            return executor.ExecuteReader(new RetrieveNutrientsDataDelegate());//delegate done
         }
     }
 }
