@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using FoodData.Model;
+using DataAccess;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace FoodData.DataDelegates
@@ -38,7 +40,7 @@ namespace FoodData.DataDelegates
 
         public override Food Translate(SqlCommand command)
         {
-            return new Food((int)command.Parameters["FoodId"].Value, Name);
+            return new Food((int)command.Parameters["FoodID"].Value, (int)command.Parameters["CategoryID"].Value, Name);
         }
     }
 }

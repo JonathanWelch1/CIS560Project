@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using FoodData.Model;
 using FoodData.DataDelegates;
+using DataAccess;
 
 namespace FoodData
 {
-    class SqlNutrientsRepository : INutrientsRepository
+    class SqlNutrientsRepository : INutrientsRepository //check fetchNutrients(nutrientId)
     {
         private readonly SqlCommandExecutor executor;
 
@@ -15,30 +16,30 @@ namespace FoodData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Nutrients CreatePerson(int FoodId, int MeasurementId, string NutrientName)
+        public Nutrients CreateNutrient(int measurementID, int foodID, int nutrientID, string nutrientName)
         {
-            if (string.IsNullOrWhiteSpace(NutrientName))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(firstName));
+            if (string.IsNullOrWhiteSpace(nutrientName))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(nutrientName));
 
-            var d = new CreateNutrienstDataDelegate(FoodId, MeasurementId, NutrientName);
+            var d = new CreateNutrientDataDelegate(foodID, measurementID, nutrientName);//delegate done?
             return executor.ExecuteNonQuery(d);
         }
 
-        public Nutrients FetchNutrients(int NutrientId)
+        public Nutrients FetchNutrients(int NutrientId, int MeasurementId, int FoodId)
         {
-            var d = new FetchNutrientsDataDelegate(NutrientId);
+            var d = new FetchNutrientsDataDelegate(NutrientId, FoodId, MeasurementId);//delegate done
             return executor.ExecuteReader(d);
         }
 
         public Nutrients GetNutrients(string NutrientName)
         {
-            var d = new GetNutrientsDataDelegate(NutrientName);
+            var d = new GetNutrientsDataDelegate(NutrientName);//delegate done
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<Nutrients> RetrieveNutrientss()
+        public IReadOnlyList<Nutrients> RetrieveNutrients()
         {
-            return executor.ExecuteReader(new RetrieveNutrientsDataDelegate());
+            return executor.ExecuteReader(new RetrieveNutrientsDataDelegate());//delegate done
         }
     }
 }

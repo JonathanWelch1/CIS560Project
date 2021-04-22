@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DataAccess;
+using FoodData.Model;
+using FoodData.DataDelegates;
 
 namespace FoodData
 {
@@ -13,12 +16,27 @@ namespace FoodData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public void SaveCategory(int categoryId, string name)
+        public List<Category> CreateCategory(int CategoryId, string CategoryName)
         {
-            if (name == null)
-                throw new ArgumentNullException(nameof(name));
+            var d = new CreateCategoryDataDelegate(CategoryId, CategoryName);
+            return executor.ExecuteNonQuery(d);//delegate done figure out return
+        }
 
-            var d = new 
+        public Category FetchCategory(int CategoryId)
+        {
+            var d = new FetchCategoryDataDelegate(CategoryId);//delegate done
+            return executor.ExecuteReader(d);
+        }
+
+        public Category GetCategory(string categoryName)
+        {
+            var d = new GetCategoryDataDelegate(categoryName);//delegate done
+            return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<Category> RetrieveCategories()
+        {
+            return executor.ExecuteReader(new RetrieveCategoryDataDelegate());
         }
     }
 }
