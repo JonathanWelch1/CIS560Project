@@ -44,4 +44,5 @@ namespace FoodData.DataDelegates
             return new Measurement(FoodId, NutrientId, MeasurementId,
                reader.GetString("unitMeasurement"));
         }
+    }
 }

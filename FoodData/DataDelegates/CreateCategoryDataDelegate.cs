@@ -4,6 +4,7 @@ using System.Text;
 using FoodData.Model;
 using DataAccess;
 using System.Data.SqlClient;
+using System.Data; 
 
 namespace FoodData.DataDelegates
 {

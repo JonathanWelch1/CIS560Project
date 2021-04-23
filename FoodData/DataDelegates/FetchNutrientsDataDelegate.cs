@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DataAccess;
 using FoodData.Model;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace FoodData.DataDelegates

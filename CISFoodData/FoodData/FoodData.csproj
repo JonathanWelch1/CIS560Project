@@ -36,15 +36,27 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataDelegates\CreateAmountDataDelegate.cs" />
-    <Compile Include="DataDelegates\CreateCategoryDataDelegate.cs" />
+    <Compile Include="..\..\FoodData\DataDelegates\CreateAmountDataDelegate.cs">
+      <Link>DataDelegates\CreateAmountDataDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FoodData\DataDelegates\CreateCategoryDataDelegate.cs">
+      <Link>DataDelegates\CreateCategoryDataDelegate.cs</Link>
+    </Compile>
     <Compile Include="DataDelegates\CreateFoodDataDelegate.cs" />
-    <Compile Include="DataDelegates\CreateMeasurementDataDelegate.cs" />
+    <Compile Include="..\..\FoodData\DataDelegates\CreateMeasurementDataDelegate.cs">
+      <Link>DataDelegates\CreateMeasurementDataDelegate.cs</Link>
+    </Compile>
     <Compile Include="DataDelegates\CreateNutrientDataDelegate.cs" />
-    <Compile Include="DataDelegates\FetchCategoryDataDelegate.cs" />
+    <Compile Include="..\..\FoodData\DataDelegates\FetchCategoryDataDelegate.cs">
+      <Link>DataDelegates\FetchCategoryDataDelegate.cs</Link>
+    </Compile>
     <Compile Include="DataDelegates\FetchFoodDataDelegate.cs" />
-    <Compile Include="DataDelegates\FetchMeasurementDataDelegate.cs" />
-    <Compile Include="DataDelegates\FetchNutrientsDataDelegate.cs" />
+    <Compile Include="..\..\FoodData\DataDelegates\FetchMeasurementDataDelegate.cs">
+      <Link>DataDelegates\FetchMeasurementDataDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FoodData\DataDelegates\FetchNutrientsDataDelegate.cs">
+      <Link>DataDelegates\FetchNutrientsDataDelegate.cs</Link>
+    </Compile>
     <Compile Include="DataDelegates\GetCategoryDataDelegate.cs" />
     <Compile Include="DataDelegates\GetFoodDataDelegate.cs" />
     <Compile Include="DataDelegates\GetMeasurementDataDelegate.cs" />
@@ -79,6 +91,14 @@
       <Project>{c5877db1-29ad-457a-99ce-888354db1430}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using FoodData.Model;
-using FoodData.DataAccess;
+using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
 
