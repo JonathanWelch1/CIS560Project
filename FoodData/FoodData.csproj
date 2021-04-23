@@ -67,6 +67,7 @@
     <Compile Include="Model\FoodCategoryL.cs" />
     <Compile Include="Model\Measurement.cs" />
     <Compile Include="Model\Nutrients.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="SqlAmountRepository.cs" />
     <Compile Include="SqlCategoryRepository.cs" />
     <Compile Include="SqlFoodCategoryRepository.cs" />
