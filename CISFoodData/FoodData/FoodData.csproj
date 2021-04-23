@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C959079-DC0E-4833-BE19-509BC5EF2320}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FoodData</RootNamespace>
+    <AssemblyName>FoodData</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataDelegates\CreateAmountDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateCategoryDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateFoodDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateMeasurementDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateNutrientDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchCategoryDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchFoodDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchMeasurementDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchNutrientsDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetCategoryDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetFoodDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetMeasurementDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetNutrientsDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveAmountDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveCategoryDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveFoodsDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveMeasurementDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveNutrientsDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetriveFoodCategoryForFoodDataDelegate.cs" />
+    <Compile Include="IAmountRepository.cs" />
+    <Compile Include="ICategoryRepository.cs" />
+    <Compile Include="IFoodCategoryLRepository.cs" />
+    <Compile Include="IFoodRepository.cs" />
+    <Compile Include="IMeasurementRepository.cs" />
+    <Compile Include="INutrientsRepository.cs" />
+    <Compile Include="Model\Amount.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\FoodCategoryL.cs" />
+    <Compile Include="Model\Measurement.cs" />
+    <Compile Include="Model\Nutrients.cs" />
+    <Compile Include="SqlAmountRepository.cs" />
+    <Compile Include="SqlCategoryRepository.cs" />
+    <Compile Include="SqlFoodCategoryRepository.cs" />
+    <Compile Include="SqlFoodRepository.cs" />
+    <Compile Include="SqlMeasurementRepository.cs" />
+    <Compile Include="SqlNutrientsRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{c5877db1-29ad-457a-99ce-888354db1430}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
