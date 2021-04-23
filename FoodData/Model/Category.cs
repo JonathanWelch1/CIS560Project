@@ -12,16 +12,16 @@ namespace FoodData.Model
         public int CategoryID { get; }
 
 
-        public string Name { get; }
+        public string CategoryName { get; }
 
         /// <summary>
         /// Constructor that sets the values
         /// </summary>
         /// <param name="categoryID"></param>
-        public Category(int categoryID, string name)
+        public Category(int categoryID, string categoryName)
         {
             CategoryID = categoryID;
-            Name = name;
+            CategoryName = categoryName;
         }
 
     }

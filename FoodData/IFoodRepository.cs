@@ -8,7 +8,7 @@ namespace FoodData
     {
         IReadOnlyList<Food> RetrieveFoods();
 
-        Food FetchFood(int foodID);
+        Food FetchFood(int foodID, int categoryID);
 
         Food GetFood(string name);
 

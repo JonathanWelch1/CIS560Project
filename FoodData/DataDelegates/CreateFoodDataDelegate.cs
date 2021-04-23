@@ -9,15 +9,15 @@ namespace FoodData.DataDelegates
 {
     internal class CreateFoodDataDelegate : NonQueryDataDelegate<Food>
     {
-        //public readonly int CategoryId;
-        //public readonly int FoodId;
+        public readonly int CategoryId;
+        public readonly int FoodId;
         public readonly string Name;
 
-        public CreateFoodDataDelegate(string Name)
+        public CreateFoodDataDelegate(int categoryId, int foodId,string Name)
             :base("Food.CreateFood")
         {
-            //this.CategoryId = CategoryId;
-            //this.FoodId = FoodId;
+            this.CategoryId = categoryId;
+            this.FoodId = foodId;
             this.Name = Name;
         }
 

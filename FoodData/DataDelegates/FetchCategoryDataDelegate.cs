@@ -11,11 +11,12 @@ namespace FoodData.DataDelegates
     internal class FetchCategoryDataDelegate : DataReaderDelegate<Category>
     {
         private readonly int CategoryId;
-
-        public FetchCategoryDataDelegate(int CategoryId)
+        private readonly string CategoryName;
+        public FetchCategoryDataDelegate(int CategoryId, string categoryName)
          : base("Person.FetchPerson")
         {
             this.CategoryId = CategoryId;
+            this.CategoryName = categoryName;
         }
 
         public override void PrepareCommand(SqlCommand command)

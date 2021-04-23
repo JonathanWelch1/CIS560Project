@@ -11,7 +11,7 @@ namespace FoodData
     {
         private readonly SqlCommandExecutor executor;
 
-        public SqlPersonRepository(string connectionString)
+        public SqlAmountRepository(string connectionString)
         {
             executor = new SqlCommandExecutor(connectionString);
         }
@@ -22,9 +22,11 @@ namespace FoodData
             return executor.ExecuteNonQuery(d);
         }
 
-        public IReadOnlyList<Amount> RetrievePersons()
+        public IReadOnlyList<Amount> RetrieveAmount()
         {
             return executor.ExecuteReader(new RetrieveAmountDataDelegate());
         }
+
+
     }
 }

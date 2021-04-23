@@ -8,7 +8,7 @@ namespace FoodData
     {
         IReadOnlyList<Measurement> RetrieveMeasurement();
 
-        Measurement FetchMeasurement(int measurementID);
+        Measurement FetchMeasurement(int measurementID, int NutrientId, int FoodId);
 
         Measurement GetMeasurement(string unitMeasurement);
 

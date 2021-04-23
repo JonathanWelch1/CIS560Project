@@ -21,7 +21,7 @@ namespace FoodData
             if (string.IsNullOrWhiteSpace(unitMeasurement))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(unitMeasurement));
 
-            var d = new CreateMeasurementDataDelegate(foodID, nutrientID, unitMeasurement);//check translate table
+            var d = new CreateMeasurementDataDelegate(foodID, nutrientID, measurementID,unitMeasurement);//check translate table
             return executor.ExecuteNonQuery(d);
         }
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using DataAccess;
+using FoodData.Model;
 
 namespace FoodData.DataDelegates
 {
@@ -28,6 +30,7 @@ namespace FoodData.DataDelegates
                 return null;
 
             return new Food(
+               reader.GetInt32("CategoryID"),
                reader.GetInt32("FoodId"),
                reader.GetString("Name"));
         }

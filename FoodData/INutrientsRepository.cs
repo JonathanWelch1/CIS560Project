@@ -9,7 +9,7 @@ namespace FoodData
 
         IReadOnlyList<Nutrients> RetrieveNutrients();
 
-        Nutrients FetchNutrients(int nutrientID);
+        Nutrients FetchNutrients(int nutrientID, int MeasurementId, int FoodId);
 
         Nutrients GetNutrients(string nutrientName);
 

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using FoodData.Model;
 using DataAccess;
 
+
 namespace FoodData.DataDelegates
 {
     internal class RetrieveFoodsDataDelegate : DataReaderDelegate<IReadOnlyList<Food>>
@@ -21,8 +22,9 @@ namespace FoodData.DataDelegates
             while (reader.Read())
             {
                 foods.Add(new Food(
+                   reader.GetInt32("CategoryID"),
                    reader.GetInt32("FoodId"),
-                   reader.GetString("Name")));
+                   reader.GetString("Name"))); ;
             }
 
             return foods;
