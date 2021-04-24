@@ -16,7 +16,7 @@ namespace FoodData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public void CreateFoodCategory(int CategoryId, int FoodId)
+        public FoodCategoryL CreateFoodCategory(int CategoryId, int FoodId)
         {
             var d = new CreateFoodCategoryDataDelegate(CategoryId, FoodId);
             return executor.ExecuteNonQuery(d);

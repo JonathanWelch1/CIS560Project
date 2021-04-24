@@ -9,6 +9,6 @@ namespace FoodData
         IReadOnlyList<FoodCategoryL> RetreiveFoodCategories(int FoodID);
 
 
-        void CreateFoodCategory(int categoryID, int foodID);
+        FoodCategoryL CreateFoodCategory(int categoryID, int foodID);
     }
 }
