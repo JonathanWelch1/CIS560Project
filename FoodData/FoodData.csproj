@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>FoodData</RootNamespace>
     <AssemblyName>FoodData</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +39,7 @@
   <ItemGroup>
     <Compile Include="DataDelegates\CreateAmountDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateCategoryDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateFoodCategoryDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateFoodDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateMeasurementDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateNutrientDataDelegate.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="DataDelegates\GetNutrientsDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveAmountDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveCategoryDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveFoodCategoriesDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveFoodsDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveMeasurementDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveNutrientsDataDelegate.cs" />
