@@ -14,40 +14,33 @@ FROM Food.Food F
 /*------------------------------------------------
 Query 3
 Displays all the foods in Fruits category
+Variable is for Categories, 13 : Fruits , 3 : Vegtable, 6 Meats, 7 : Vegetables
 */
+DECLARE @categoryID INT = 13
 SELECT C.CategoryName, F.Discription
 FROM Food.Category C
     INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID
     INNER JOIN Food.Food F ON F.FoodID = L.FoodID
-WHERE C.CategoryID = 13
+WHERE C.CategoryID = categoryID
 GROUP BY CategoryName, Discription
 /*------------------------------------------------
 Query 4
-Displays all the foods in Vegtables category
+Displays Top result of nutrient, for a corrisponding category
 */
-SELECT C.CategoryName, F.Discription
-FROM Food.Category C
-    INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID
-    INNER JOIN Food.Food F ON F.FoodID = L.FoodID
-WHERE C.CategoryID = 3
-GROUP BY CategoryName, Discription
-/*------------------------------------------------
-Query 6
-Displays all the foods in Meats category
-*/
-SELECT C.CategoryName, F.Discription
-FROM Foods.Category C
-    INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID
-    INNER JOIN Food.Food F ON F.FoodID = L.FoodID
-WHERE C.CategoryID = 6
-GROUP BY CategoryName, Discription
-/*------------------------------------------------
-Query 7
-Displays all the foods in Fish category
-*/
-SELECT C.CategoryName, F.Discription
-FROM Food.Category C
-    INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID
-    INNER JOIN Food.Food F ON F.FoodID = L.FoodID
-WHERE C.CategoryID = 12
-GROUP BY CategoryName, Discription
+DECLARE @nutrientID INT = 0, @categoryID INT = 6;
+WITH FoodofCategory(FoodID, Discription, CategoryName) AS
+    (
+        SELECT FD.FoodID, FD.Discription, C.CategoryName
+        FROM Food.Category C
+            INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID
+            INNER JOIN Food.Food FD ON FD.FoodID = L.FoodID
+        WHERE C.CategoryID = @categoryID 
+        GROUP BY FD.FoodID, FD.Discription, C.CategoryName
+    )
+SELECT TOP 50 F.CategoryName, F.Discription, A.Amount, M.UnitMeasurement
+FROM FoodofCategory F 
+    INNER JOIN Food.Amount A ON A.FoodID = F.FoodID
+    INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID
+    INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID
+WHERE N.NutrientID = @nutrientID
+ORDER BY A.Amount DESC
