@@ -1,26 +1,26 @@
 --CREATE SCHEMA Foods; /* Uncomment me! */
 USE joselopez44528
 
-DROP TABLE IF EXISTS Foods.FoodCategoryL;
-DROP TABLE IF EXISTS Foods.Amount;
-DROP TABLE IF EXISTS Foods.Food;
-DROP TABLE IF EXISTS Foods.Category;
-DROP TABLE IF EXISTS Foods.Nutrient;
-DROP TABLE IF EXISTS Foods.Measurement;
---DROP SCHEMA IF EXISTS Foods;
+DROP TABLE IF EXISTS Food.FoodCategoryL;
+DROP TABLE IF EXISTS Food.Amount;
+DROP TABLE IF EXISTS Food.Food;
+DROP TABLE IF EXISTS Food.Category;
+DROP TABLE IF EXISTS Food.Nutrient;
+DROP TABLE IF EXISTS Food.Measurement;
+--DROP SCHEMA IF EXISTS Food;
 GO 
 
---CREATE SCHEMA Foods;
+--CREATE SCHEMA Food;
 
 GO
 
-CREATE TABLE Foods.Category
+CREATE TABLE Food.Category
 (
     CategoryID INT NOT NULL IDENTITY PRIMARY KEY,
     CategoryName NVARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Foods.Food
+CREATE TABLE Food.Food
 (
     FoodID INT NOT NULL,
     Discription NVARCHAR(Max) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE Foods.Food
 );
 
 GO
-CREATE TABLE Foods.FoodCategoryL
+CREATE TABLE Food.FoodCategoryL
 (
     CategoryID INT NOT NULL,
     FoodID INT NOT NULL, 
@@ -44,11 +44,11 @@ CREATE TABLE Foods.FoodCategoryL
         FoodID
     ),
 
-    CONSTRAINT [FK_Foods_FoodCategoryL_CategoryID] FOREIGN KEY (CategoryID) REFERENCES Foods.Category(CategoryID),
-    CONSTRAINT [FK_Foods_FoodCategoryL_FoodID] FOREIGN KEY (FoodID) REFERENCES Foods.Food(FoodID),
+    CONSTRAINT [FK_Foods_FoodCategoryL_CategoryID] FOREIGN KEY (CategoryID) REFERENCES Food.Category(CategoryID),
+    CONSTRAINT [FK_Foods_FoodCategoryL_FoodID] FOREIGN KEY (FoodID) REFERENCES Food.Food(FoodID),
 );
 
-CREATE TABLE Foods.Nutrient
+CREATE TABLE Food.Nutrient
 (
     NutrientID INT NOT NULL,
     NutrientName NVARCHAR(50),
@@ -60,7 +60,7 @@ CREATE TABLE Foods.Nutrient
 );
 
 
-CREATE TABLE Foods.Measurement
+CREATE TABLE Food.Measurement
 (
     MeasurementID INT NOT NULL,
     UnitMeasurement NVARCHAR(20),
@@ -72,12 +72,12 @@ CREATE TABLE Foods.Measurement
 );
 
 
-CREATE TABLE Foods.Amount
+CREATE TABLE Food.Amount
 (
     FoodID INT NOT NULL,
     MeasurementID INT NOT NULL,
     NutrientID INT NOT NULL,
-    Calories float,
+    Amount float,
 
 
     CONSTRAINT[PK_Foods_Amount] PRIMARY KEY
@@ -87,9 +87,9 @@ CREATE TABLE Foods.Amount
         FoodID
     ),
 
-    CONSTRAINT [FK_Foods_Amount_MeasurementID] FOREIGN KEY (MeasurementID) REFERENCES Foods.Measurement(MeasurementID),
-    CONSTRAINT [FK_Foods_Amount_FoodID] FOREIGN KEY (FoodID) REFERENCES Foods.Food(FoodID),
-    CONSTRAINT [FK_Foods_Amount_NutrientID] FOREIGN KEY (NutrientID) REFERENCES Foods.Nutrient(NutrientID)
+    CONSTRAINT [FK_Foods_Amount_MeasurementID] FOREIGN KEY (MeasurementID) REFERENCES Food.Measurement(MeasurementID),
+    CONSTRAINT [FK_Foods_Amount_FoodID] FOREIGN KEY (FoodID) REFERENCES Food.Food(FoodID),
+    CONSTRAINT [FK_Foods_Amount_NutrientID] FOREIGN KEY (NutrientID) REFERENCES Food.Nutrient(NutrientID)
 
 );
 
