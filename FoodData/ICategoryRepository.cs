@@ -12,6 +12,6 @@ namespace FoodData
 
         Category GetCategory(string name);
 
-        List<Category> CreateCategory(int categoryID, string name);
+        Category CreateCategory(int categoryID, string name);
     }
 }

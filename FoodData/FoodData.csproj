@@ -54,7 +54,7 @@
     <Compile Include="DataDelegates\RetrieveFoodsDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveMeasurementDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveNutrientsDataDelegate.cs" />
-    <Compile Include="DataDelegates\RetriveFoodCategoryForFoodDataDelegate.cs" />
+    <Compile Include="Model\RetriveFoodCategoryForFoodDataDelegate.cs" />
     <Compile Include="IAmountRepository.cs" />
     <Compile Include="ICategoryRepository.cs" />
     <Compile Include="IFoodCategoryLRepository.cs" />
@@ -67,7 +67,6 @@
     <Compile Include="Model\FoodCategoryL.cs" />
     <Compile Include="Model\Measurement.cs" />
     <Compile Include="Model\Nutrients.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="SqlAmountRepository.cs" />
     <Compile Include="SqlCategoryRepository.cs" />
     <Compile Include="SqlFoodCategoryRepository.cs" />
