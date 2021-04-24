@@ -16,13 +16,13 @@ namespace FoodData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public List<Category> CreateCategory(int CategoryID, string CategoryName)
+        public Category CreateCategory(int CategoryID, string CategoryName)
         {
             if(string.IsNullOrWhiteSpace(CategoryName))
                 throw new ArgumentException("The parameter cannot be null or empty. ", nameof(CategoryName));
             
             var d = new CreateCategoryDataDelegate(CategoryID, CategoryName);
-            return null; // executor.ExecuteNonQuery(d);//delegate done figure out return
+            return executor.ExecuteNonQuery(d);//delegate done figure out return
         }
 
         public Category FetchCategory(int CategoryId, string CategoryName)

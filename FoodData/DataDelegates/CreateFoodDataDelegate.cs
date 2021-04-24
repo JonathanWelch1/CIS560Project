@@ -25,13 +25,13 @@ namespace FoodData.DataDelegates
         {
             base.PrepareCommand(command);
 
-            //var p = command.Parameters.Add("CategoryId", SqlDbType.Int);
-            //p.Value = CategoryId;
+            var p = command.Parameters.Add("CategoryId", SqlDbType.Int);
+            p.Value = CategoryId;
 
-            //p = command.Parameters.Add("FoodId", SqlDbType.Int);
-            //p.Value = FoodId;
+            p = command.Parameters.Add("FoodId", SqlDbType.Int);
+            p.Value = FoodId;
 
-            var p = command.Parameters.Add("Name", SqlDbType.NVarChar);
+            p = command.Parameters.Add("Name", SqlDbType.NVarChar);
             p.Value = Name;
 
             p = command.Parameters.Add("FoodId", SqlDbType.Int);
