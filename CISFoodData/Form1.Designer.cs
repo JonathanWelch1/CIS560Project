@@ -31,17 +31,17 @@
             this.Query1 = new System.Windows.Forms.Button();
             this.Query2 = new System.Windows.Forms.Button();
             this.Query3 = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Query4 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Query5 = new System.Windows.Forms.Button();
-            this.Query6 = new System.Windows.Forms.Button();
-            this.Query7 = new System.Windows.Forms.Button();
-            this.Query8 = new System.Windows.Forms.Button();
-            this.Query9 = new System.Windows.Forms.Button();
-            this.Query10 = new System.Windows.Forms.Button();
-            this.Query11 = new System.Windows.Forms.Button();
-            this.Query12 = new System.Windows.Forms.Button();
-            this.SqlOutPutTextBox = new System.Windows.Forms.TextBox();
-            this.ClearTextBox = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Query1
@@ -50,7 +50,7 @@
             this.Query1.Name = "Query1";
             this.Query1.Size = new System.Drawing.Size(126, 57);
             this.Query1.TabIndex = 0;
-            this.Query1.Text = "Query1";
+            this.Query1.Text = "Select Categories";
             this.Query1.UseVisualStyleBackColor = true;
             this.Query1.Click += new System.EventHandler(this.Query1_Click);
             // 
@@ -60,7 +60,7 @@
             this.Query2.Name = "Query2";
             this.Query2.Size = new System.Drawing.Size(126, 57);
             this.Query2.TabIndex = 1;
-            this.Query2.Text = "Query2";
+            this.Query2.Text = "Food Descrp";
             this.Query2.UseVisualStyleBackColor = true;
             this.Query2.Click += new System.EventHandler(this.Query2_Click);
             // 
@@ -70,139 +70,118 @@
             this.Query3.Name = "Query3";
             this.Query3.Size = new System.Drawing.Size(126, 57);
             this.Query3.TabIndex = 2;
-            this.Query3.Text = "Query3";
+            this.Query3.Text = "Search Neutrient By ID";
             this.Query3.UseVisualStyleBackColor = true;
             this.Query3.Click += new System.EventHandler(this.Query3_Click);
             // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(89, 365);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(731, 281);
+            this.dataGridView.TabIndex = 14;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(562, 138);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(50, 31);
+            this.textBox1.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(514, 156);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "FoodID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(539, 198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 17;
+            // 
             // Query4
             // 
-            this.Query4.Location = new System.Drawing.Point(694, 57);
+            this.Query4.Location = new System.Drawing.Point(661, 57);
             this.Query4.Name = "Query4";
             this.Query4.Size = new System.Drawing.Size(126, 57);
-            this.Query4.TabIndex = 3;
-            this.Query4.Text = "Query4";
+            this.Query4.TabIndex = 18;
+            this.Query4.Text = "Search By Category\r\n";
             this.Query4.UseVisualStyleBackColor = true;
-            this.Query4.Click += new System.EventHandler(this.Query4_Click);
+            this.Query4.Click += new System.EventHandler(this.Query4_Click_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(647, 156);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "CategoryID";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(713, 138);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(50, 31);
+            this.textBox2.TabIndex = 20;
             // 
             // Query5
             // 
-            this.Query5.Location = new System.Drawing.Point(89, 144);
+            this.Query5.Location = new System.Drawing.Point(89, 154);
             this.Query5.Name = "Query5";
             this.Query5.Size = new System.Drawing.Size(126, 57);
-            this.Query5.TabIndex = 4;
-            this.Query5.Text = "Query5";
+            this.Query5.TabIndex = 21;
+            this.Query5.Text = "Searching By NutrientID";
             this.Query5.UseVisualStyleBackColor = true;
             this.Query5.Click += new System.EventHandler(this.Query5_Click);
             // 
-            // Query6
+            // textBox3
             // 
-            this.Query6.Location = new System.Drawing.Point(289, 144);
-            this.Query6.Name = "Query6";
-            this.Query6.Size = new System.Drawing.Size(126, 57);
-            this.Query6.TabIndex = 5;
-            this.Query6.Text = "Query6";
-            this.Query6.UseVisualStyleBackColor = true;
-            this.Query6.Click += new System.EventHandler(this.Query6_Click);
+            this.textBox3.Location = new System.Drawing.Point(165, 230);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(50, 31);
+            this.textBox3.TabIndex = 22;
             // 
-            // Query7
+            // label4
             // 
-            this.Query7.Location = new System.Drawing.Point(486, 144);
-            this.Query7.Name = "Query7";
-            this.Query7.Size = new System.Drawing.Size(126, 57);
-            this.Query7.TabIndex = 6;
-            this.Query7.Text = "Query7";
-            this.Query7.UseVisualStyleBackColor = true;
-            this.Query7.Click += new System.EventHandler(this.Query7_Click);
-            // 
-            // Query8
-            // 
-            this.Query8.Location = new System.Drawing.Point(694, 144);
-            this.Query8.Name = "Query8";
-            this.Query8.Size = new System.Drawing.Size(126, 57);
-            this.Query8.TabIndex = 7;
-            this.Query8.Text = "Query8";
-            this.Query8.UseVisualStyleBackColor = true;
-            this.Query8.Click += new System.EventHandler(this.Query8_Click);
-            // 
-            // Query9
-            // 
-            this.Query9.Location = new System.Drawing.Point(89, 243);
-            this.Query9.Name = "Query9";
-            this.Query9.Size = new System.Drawing.Size(126, 57);
-            this.Query9.TabIndex = 8;
-            this.Query9.Text = "Query9";
-            this.Query9.UseVisualStyleBackColor = true;
-            this.Query9.Click += new System.EventHandler(this.Query9_Click);
-            // 
-            // Query10
-            // 
-            this.Query10.Location = new System.Drawing.Point(289, 243);
-            this.Query10.Name = "Query10";
-            this.Query10.Size = new System.Drawing.Size(126, 57);
-            this.Query10.TabIndex = 9;
-            this.Query10.Text = "Query10";
-            this.Query10.UseVisualStyleBackColor = true;
-            this.Query10.Click += new System.EventHandler(this.Query10_Click);
-            // 
-            // Query11
-            // 
-            this.Query11.Location = new System.Drawing.Point(486, 243);
-            this.Query11.Name = "Query11";
-            this.Query11.Size = new System.Drawing.Size(126, 57);
-            this.Query11.TabIndex = 10;
-            this.Query11.Text = "Query11";
-            this.Query11.UseVisualStyleBackColor = true;
-            this.Query11.Click += new System.EventHandler(this.Query11_Click);
-            // 
-            // Query12
-            // 
-            this.Query12.Location = new System.Drawing.Point(694, 243);
-            this.Query12.Name = "Query12";
-            this.Query12.Size = new System.Drawing.Size(126, 57);
-            this.Query12.TabIndex = 11;
-            this.Query12.Text = "Query12";
-            this.Query12.UseVisualStyleBackColor = true;
-            this.Query12.Click += new System.EventHandler(this.Query12_Click);
-            // 
-            // SqlOutPutTextBox
-            // 
-            this.SqlOutPutTextBox.Location = new System.Drawing.Point(89, 362);
-            this.SqlOutPutTextBox.Multiline = true;
-            this.SqlOutPutTextBox.Name = "SqlOutPutTextBox";
-            this.SqlOutPutTextBox.Size = new System.Drawing.Size(731, 357);
-            this.SqlOutPutTextBox.TabIndex = 12;
-            // 
-            // ClearTextBox
-            // 
-            this.ClearTextBox.Location = new System.Drawing.Point(868, 144);
-            this.ClearTextBox.Name = "ClearTextBox";
-            this.ClearTextBox.Size = new System.Drawing.Size(126, 57);
-            this.ClearTextBox.TabIndex = 13;
-            this.ClearTextBox.Text = "Clear Output";
-            this.ClearTextBox.UseVisualStyleBackColor = true;
-            this.ClearTextBox.Click += new System.EventHandler(this.ClearTextBox_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(99, 248);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "NutrientID";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 765);
-            this.Controls.Add(this.ClearTextBox);
-            this.Controls.Add(this.SqlOutPutTextBox);
-            this.Controls.Add(this.Query12);
-            this.Controls.Add(this.Query11);
-            this.Controls.Add(this.Query10);
-            this.Controls.Add(this.Query9);
-            this.Controls.Add(this.Query8);
-            this.Controls.Add(this.Query7);
-            this.Controls.Add(this.Query6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.Query5);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Query4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.Query3);
             this.Controls.Add(this.Query2);
             this.Controls.Add(this.Query1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,17 +192,16 @@
         private System.Windows.Forms.Button Query1;
         private System.Windows.Forms.Button Query2;
         private System.Windows.Forms.Button Query3;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Query4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button Query5;
-        private System.Windows.Forms.Button Query6;
-        private System.Windows.Forms.Button Query7;
-        private System.Windows.Forms.Button Query8;
-        private System.Windows.Forms.Button Query9;
-        private System.Windows.Forms.Button Query10;
-        private System.Windows.Forms.Button Query11;
-        private System.Windows.Forms.Button Query12;
-        private System.Windows.Forms.TextBox SqlOutPutTextBox;
-        private System.Windows.Forms.Button ClearTextBox;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
