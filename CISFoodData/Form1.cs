@@ -23,6 +23,7 @@ namespace CISFoodData
         {
 
             SqlOutPutTextBox.Text = "1";
+
         }
 
         private void Query2_Click(object sender, EventArgs e)
