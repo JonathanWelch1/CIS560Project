@@ -82,16 +82,30 @@ namespace CISFoodData
             connectionString.Close();
         }
 
-
-        private void ClearTextBox_Click(object sender, EventArgs e)
+        private void Query6_Click(object sender, EventArgs e)
         {
-            ClearDisplay();
+            connectionString.Open();
+            int CategoryID = Convert.ToInt32(textBox2.Text);
+            int NutrientID = Convert.ToInt32(textBox3.Text);
+            int rank = Convert.ToInt32(textBox4.Text);
+            var adp = new SqlDataAdapter("SELECT TOP("+rank+ ")F.Discription AS 'FoodName', N.NutrientName, A.Amount FROM FOOD.Nutrient N INNER JOIN FOOD.Amount A ON A.NutrientID = N.NutrientID INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID INNER JOIN FOOD.FoodCategoryL FCL ON FCL.FoodID = F.FoodID INNER JOIN FOOD.Category C ON C.CategoryID = FCL.CategoryID WHERE C.CategoryID =" + CategoryID + "AND N.NutrientID =" + NutrientID+ "ORDER BY A.Amount DESC", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
         }
 
-        private void ClearDisplay()
+        private void Query7_Click(object sender, EventArgs e)
         {
-
+            connectionString.Open();
+            int LOW = Convert.ToInt32(textBox5.Text);
+            int HIGH = Convert.ToInt32(textBox6.Text);
+            int rank = Convert.ToInt32(textBox4.Text);
+            var adp = new SqlDataAdapter("SELECT TOP("+ rank +") F.Discription AS 'FoodName', M.UnitMeasurement, N.NutrientName, A.Amount FROM FOOD.Nutrient N INNER JOIN FOOD.Amount A ON A.NutrientID = N.NutrientID INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID INNER JOIN FOOD.Measurement M ON M.MeasurementID = A.MeasurementID WHERE M.MeasurementID = 0 AND A.Amount BETWEEN " + LOW + " AND " + HIGH + " Order BY A.Amount DESC", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
         }
-
     }
 }
