@@ -13,12 +13,12 @@ using FoodData;
 
 namespace CISFoodData
 {
-    public partial class Form1 : Form
+    public partial class DataBaseGUI : Form
     {
 
        
 
-        public Form1()
+        public DataBaseGUI()
         {
             InitializeComponent();
         }
@@ -147,6 +147,20 @@ namespace CISFoodData
             int foodID = Convert.ToInt32(textBox1.Text);
             string name = Convert.ToString(textBox7.Text);
             var adp = new SqlDataAdapter("UPDATE Food.Food SET Name ='" + name + "' WHERE FoodID = " + foodID + "SELECT * FROM Food.Food", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
+        }
+
+        private void Query12_Click(object sender, EventArgs e)
+        {
+            connectionString.Open();
+            int rank = Convert.ToInt32(textBox4.Text);
+            int LOW = Convert.ToInt32(textBox5.Text);
+            int HIGH = Convert.ToInt32(textBox6.Text);
+            int NutrientID = Convert.ToInt32(textBox3.Text);
+            var adp = new SqlDataAdapter("WITH Calories(Discription, Amount) AS (SELECT F.Discription, A.Amount FROM FOOD.Amount A INNER JOIN FOOD.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID WHERE M.MeasurementID = 0 AND A.Amount BETWEEN " + LOW + " AND " + HIGH + ") SELECT TOP(" + rank + ") CAL.Discription AS 'FoodName', CAL.Amount AS 'Calories', N.NutrientName, A.Amount FROM FOOD.Nutrient N INNER JOIN FOOD.Amount A ON A.NutrientID = N.NutrientID INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID INNER JOIN FOOD.FoodCategoryL FCL ON FCL.FoodID = F.FoodID INNER JOIN FOOD.Category C ON C.CategoryID = FCL.CategoryID INNER JOIN FOOD.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Calories CAL ON CAL.Discription = F.Discription WHERE N.NutrientID ="+ NutrientID + " AND A.Amount IS NOT NULL ORDER BY A.Amount DESC", connectionString);
             var dt = new DataTable();
             adp.Fill(dt);
             dataGridView.DataSource = dt;

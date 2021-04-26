@@ -1,6 +1,6 @@
 ﻿namespace CISFoodData
 {
-    partial class Form1
+    partial class DataBaseGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -53,6 +53,7 @@
             this.Query10 = new System.Windows.Forms.Button();
             this.Query11 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.Query12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +79,11 @@
             // 
             // Query3
             // 
-            this.Query3.Location = new System.Drawing.Point(289, 183);
+            this.Query3.Location = new System.Drawing.Point(289, 189);
             this.Query3.Name = "Query3";
             this.Query3.Size = new System.Drawing.Size(126, 57);
             this.Query3.TabIndex = 2;
-            this.Query3.Text = "Search Nutrient By ID";
+            this.Query3.Text = "Search Nutrient By FoodID";
             this.Query3.UseVisualStyleBackColor = true;
             this.Query3.Click += new System.EventHandler(this.Query3_Click);
             // 
@@ -271,7 +272,7 @@
             this.Query11.Name = "Query11";
             this.Query11.Size = new System.Drawing.Size(126, 57);
             this.Query11.TabIndex = 34;
-            this.Query11.Text = "Set Name";
+            this.Query11.Text = "Set Name for Food";
             this.Query11.UseVisualStyleBackColor = true;
             this.Query11.Click += new System.EventHandler(this.Query11_Click);
             // 
@@ -283,11 +284,22 @@
             this.textBox7.Size = new System.Drawing.Size(89, 31);
             this.textBox7.TabIndex = 35;
             // 
-            // Form1
+            // Query12
+            // 
+            this.Query12.Location = new System.Drawing.Point(421, 189);
+            this.Query12.Name = "Query12";
+            this.Query12.Size = new System.Drawing.Size(126, 57);
+            this.Query12.TabIndex = 36;
+            this.Query12.Text = "Highest Nutrient Amount in Calorie Range";
+            this.Query12.UseVisualStyleBackColor = true;
+            this.Query12.Click += new System.EventHandler(this.Query12_Click);
+            // 
+            // DataBaseGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 765);
+            this.Controls.Add(this.Query12);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.Query11);
             this.Controls.Add(this.Query10);
@@ -313,7 +325,7 @@
             this.Controls.Add(this.Query3);
             this.Controls.Add(this.Query2);
             this.Controls.Add(this.Query1);
-            this.Name = "Form1";
+            this.Name = "DataBaseGUI";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -348,6 +360,7 @@
         private System.Windows.Forms.Button Query10;
         private System.Windows.Forms.Button Query11;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button Query12;
     }
 }
 
