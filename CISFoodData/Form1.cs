@@ -107,5 +107,50 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
+
+        private void Query8_Click(object sender, EventArgs e)
+        {
+            connectionString.Open();
+            int CategoryID = Convert.ToInt32(textBox2.Text);
+            int NutrientID = Convert.ToInt32(textBox3.Text);
+            var adp = new SqlDataAdapter("WITH FoodofCategory(FoodID, Discription, CategoryName) AS (SELECT FD.FoodID, FD.Discription, C.CategoryName FROM Food.Category C INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID INNER JOIN Food.Food FD ON FD.FoodID = L.FoodID WHERE C.CategoryID =" + CategoryID+ "GROUP BY FD.FoodID, FD.Discription, C.CategoryName ) SELECT TOP 50 F.CategoryName, F.Discription, A.Amount, M.UnitMeasurement FROM FoodofCategory F INNER JOIN Food.Amount A ON A.FoodID = F.FoodID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID WHERE N.NutrientID = " + NutrientID + "ORDER BY A.Amount DESC", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
+        }
+
+        private void Query9_Click(object sender, EventArgs e)
+        {
+            connectionString.Open();
+            int rank = Convert.ToInt32(textBox4.Text);
+            var adp = new SqlDataAdapter("SELECT TOP("+ rank + ") F.FoodID, F.Discription, RANK() OVER(ORDER BY Amount.Total DESC) AS [RankOfFood] FROM ( SELECT TOP(" + rank+ ") A.FoodID, SUM(A.Amount) AS Total FROM Food.Amount A INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID GROUP BY A.FoodID ORDER BY Total DESC) AS Amount INNER JOIN Food.Food F ON F.FoodID = Amount.FoodID ORDER BY Amount.Total DESC", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
+        }
+
+        private void Query10_Click(object sender, EventArgs e)
+        {
+            connectionString.Open();
+            var adp = new SqlDataAdapter("SELECT * FROM Food.Category C Inner join Food.FoodCategoryL FCL ON FCL.CategoryID = C.CategoryID Inner join Food.Food F ON F.FoodID = FCL.FoodID INNER JOIN Food.Amount A ON A.FoodID = F.FoodID INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
+        }
+
+        private void Query11_Click(object sender, EventArgs e)
+        {
+            connectionString.Open();
+            int foodID = Convert.ToInt32(textBox1.Text);
+            string name = Convert.ToString(textBox7.Text);
+            var adp = new SqlDataAdapter("UPDATE Food.Food SET Name ='" + name + "' WHERE FoodID = " + foodID + "SELECT * FROM Food.Food", connectionString);
+            var dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView.DataSource = dt;
+            connectionString.Close();
+        }
     }
 }

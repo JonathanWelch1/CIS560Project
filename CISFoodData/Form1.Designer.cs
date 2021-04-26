@@ -48,12 +48,17 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Query7 = new System.Windows.Forms.Button();
+            this.Query8 = new System.Windows.Forms.Button();
+            this.Query9 = new System.Windows.Forms.Button();
+            this.Query10 = new System.Windows.Forms.Button();
+            this.Query11 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Query1
             // 
-            this.Query1.Location = new System.Drawing.Point(133, 57);
+            this.Query1.Location = new System.Drawing.Point(421, 57);
             this.Query1.Name = "Query1";
             this.Query1.Size = new System.Drawing.Size(126, 57);
             this.Query1.TabIndex = 0;
@@ -230,11 +235,64 @@
             this.Query7.UseVisualStyleBackColor = true;
             this.Query7.Click += new System.EventHandler(this.Query7_Click);
             // 
+            // Query8
+            // 
+            this.Query8.Location = new System.Drawing.Point(133, 252);
+            this.Query8.Name = "Query8";
+            this.Query8.Size = new System.Drawing.Size(126, 57);
+            this.Query8.TabIndex = 31;
+            this.Query8.Text = "Top Results for Nutrients by Category";
+            this.Query8.UseVisualStyleBackColor = true;
+            this.Query8.Click += new System.EventHandler(this.Query8_Click);
+            // 
+            // Query9
+            // 
+            this.Query9.Location = new System.Drawing.Point(289, 252);
+            this.Query9.Name = "Query9";
+            this.Query9.Size = new System.Drawing.Size(126, 57);
+            this.Query9.TabIndex = 32;
+            this.Query9.Text = "Food With Most Combined Nutrients";
+            this.Query9.UseVisualStyleBackColor = true;
+            this.Query9.Click += new System.EventHandler(this.Query9_Click);
+            // 
+            // Query10
+            // 
+            this.Query10.Location = new System.Drawing.Point(133, 57);
+            this.Query10.Name = "Query10";
+            this.Query10.Size = new System.Drawing.Size(126, 57);
+            this.Query10.TabIndex = 33;
+            this.Query10.Text = "Select All";
+            this.Query10.UseVisualStyleBackColor = true;
+            this.Query10.Click += new System.EventHandler(this.Query10_Click);
+            // 
+            // Query11
+            // 
+            this.Query11.Location = new System.Drawing.Point(421, 120);
+            this.Query11.Name = "Query11";
+            this.Query11.Size = new System.Drawing.Size(126, 57);
+            this.Query11.TabIndex = 34;
+            this.Query11.Text = "Set Name";
+            this.Query11.UseVisualStyleBackColor = true;
+            this.Query11.Click += new System.EventHandler(this.Query11_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(553, 139);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(89, 31);
+            this.textBox7.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 765);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.Query11);
+            this.Controls.Add(this.Query10);
+            this.Controls.Add(this.Query9);
+            this.Controls.Add(this.Query8);
             this.Controls.Add(this.Query7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox6);
@@ -285,6 +343,11 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Query7;
+        private System.Windows.Forms.Button Query8;
+        private System.Windows.Forms.Button Query9;
+        private System.Windows.Forms.Button Query10;
+        private System.Windows.Forms.Button Query11;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
 
