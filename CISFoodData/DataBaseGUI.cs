@@ -25,8 +25,6 @@ namespace CISFoodData
         SqlConnection connectionString = new SqlConnection("Data Source=mssql.cs.ksu.edu;Initial Catalog = joselopez44528; User ID = joselopez44528; Password= ksu10191947* ");
         private void Query1_Click(object sender, EventArgs e)
         {
-
-            
             connectionString.Open();
             var adp = new SqlDataAdapter("Select * From Food.Category C", connectionString);
             var dt = new DataTable();

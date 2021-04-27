@@ -26,7 +26,6 @@ GROUP BY CategoryName, Discription
 /*------------------------------------------------
 Query 4
 Displays Top result of nutrient, for a corrisponding category
--You need to implement number 4 cutie
 */
 DECLARE @nutrientID INT = 2, @categoryID INT = 6;
 WITH FoodofCategory(FoodID, Discription, CategoryName) AS
@@ -72,7 +71,45 @@ FROM
 ) AS Amount 
 INNER JOIN Food.Food F ON F.FoodID = Amount.FoodID
 ORDER BY Amount.Total DESC
-/*------------------------------------------------
+
+/*
+Query 7
+This query allows users to pick the top food names along with choosing the amounts in a range
+*/
+DECLARE @RANK INT = 0
+DECLARE @LOW INT = 100
+DECLARE @HIGH INT = 150
+SELECT TOP(@RANK) F.Discription AS 'FoodName', M.UnitMeasurement, N.NutrientName, A.Amount 
+FROM FOOD.Nutrient N INNER JOIN FOOD.Amount A ON A.NutrientID = N.NutrientID 
+INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID 
+INNER JOIN FOOD.Measurement M ON M.MeasurementID = A.MeasurementID 
+WHERE M.MeasurementID = 0 AND A.Amount BETWEEN @LOW AND @HIGH
+ Order BY A.Amount DESC
+
+ /*
+ Query 8 
+Allows the user to input categoryID and nutrientID and returns the top food according to those user inputs
+ */
+ DECLARE @CategoryID INT = 0
+ DECLARE @NutrientID INT = 0
+ WITH FoodofCategory(FoodID, Discription, CategoryName) AS 
+ (
+     SELECT FD.FoodID, FD.Discription, C.CategoryName 
+     FROM Food.Category C 
+        INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID 
+        INNER JOIN Food.Food FD ON FD.FoodID = L.FoodID 
+    WHERE C.CategoryID =" + CategoryID+ "
+    GROUP BY FD.FoodID, FD.Discription, C.CategoryName 
+ ) 
+SELECT TOP 50 F.CategoryName, F.Discription, A.Amount, M.UnitMeasurement 
+FROM FoodofCategory F 
+    INNER JOIN Food.Amount A ON A.FoodID = F.FoodID 
+    INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID 
+    INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID 
+ WHERE N.NutrientID = " + NutrientID + " 
+ ORDER BY A.Amount DESC
+
+ /*------------------------------------------------
 Query 9
 Returns the best rank food according to the amount
 */
