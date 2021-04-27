@@ -16,14 +16,14 @@ GO
 
 CREATE TABLE Food.Category
 (
-    CategoryID INT NOT NULL IDENTITY PRIMARY KEY,
+    CategoryID INT NOT NULL PRIMARY KEY,
     CategoryName NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Food.Food
 (
     FoodID INT NOT NULL,
-    Discription NVARCHAR(Max) NOT NULL,
+    Discription NVARCHAR(MAX) NOT NULL,
     [Name] NVarChar(50),
 
     CONSTRAINT [PK_Foods_Food_FoodID] PRIMARY KEY
