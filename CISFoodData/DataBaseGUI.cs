@@ -21,8 +21,16 @@ namespace CISFoodData
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// establishes a connection to the databse
+        /// </summary>
         SqlConnection connectionString = new SqlConnection("Data Source=mssql.cs.ksu.edu;Initial Catalog = joselopez44528; User ID = joselopez44528; Password= ksu10191947* ");
+
+        /// <summary>
+        /// Button Click event for query 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query1_Click(object sender, EventArgs e)
         {
             connectionString.Open();
@@ -32,7 +40,11 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
-
+        /// <summary>
+        /// Button Click event for query 2.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query2_Click(object sender, EventArgs e)
         {
             connectionString.Open();
@@ -44,7 +56,11 @@ namespace CISFoodData
 
 
         }
-
+        /// <summary>
+        /// Button Click event for query 3.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query3_Click(object sender, EventArgs e)
         {
          
@@ -62,6 +78,11 @@ namespace CISFoodData
                 connectionString.Close();
         }
 
+        /// <summary>
+        /// Button Click event for query 4.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query4_Click_1(object sender, EventArgs e)
         {
             if (textBox2.Text.Equals(""))
@@ -78,6 +99,11 @@ namespace CISFoodData
             connectionString.Close();
         }
 
+        /// <summary>
+        /// Button Click event for query 5.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query5_Click(object sender, EventArgs e)
         {
             if (textBox4.Text.Equals(""))
@@ -93,7 +119,11 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
-
+        /// <summary>
+        /// Button Click event for query 6.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query6_Click(object sender, EventArgs e)
         {
             if (textBox2.Text.Equals(""))
@@ -122,6 +152,11 @@ namespace CISFoodData
             connectionString.Close();
         }
 
+        /// <summary>
+        /// Button Click event for query 7.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query7_Click(object sender, EventArgs e)
         {
             if (textBox4.Text.Equals(""))
@@ -150,6 +185,11 @@ namespace CISFoodData
             connectionString.Close();
         }
 
+        /// <summary>
+        /// Button Click event for query 8
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query8_Click(object sender, EventArgs e)
         {
             if (textBox2.Text.Equals(""))
@@ -171,7 +211,11 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
-
+        /// <summary>
+        /// Button Click event for query 9
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query9_Click(object sender, EventArgs e)
         {
             if(textBox4.Text.Equals(""))
@@ -188,7 +232,11 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
-
+        /// <summary>
+        /// Button Click event for query 10
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query10_Click(object sender, EventArgs e)
         {
             connectionString.Open();
@@ -198,7 +246,11 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
-
+        /// <summary>
+        /// Button Click event for query 11
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query11_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Equals(""))
@@ -220,7 +272,11 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
-
+        /// <summary>
+        /// Button Click event for query 12
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Query12_Click(object sender, EventArgs e)
         {
             if (textBox4.Text.Equals(""))
