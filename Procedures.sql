@@ -26,7 +26,7 @@ GROUP BY CategoryName, Discription
 /*------------------------------------------------
 Query 4
 Displays Top result of nutrient, for a corrisponding category
-___________________________________________________________________________________________________________-You need to implement number 4 cutie
+-You need to implement number 4 cutie
 */
 DECLARE @nutrientID INT = 2, @categoryID INT = 6;
 WITH FoodofCategory(FoodID, Discription, CategoryName) AS
@@ -72,3 +72,65 @@ FROM
 ) AS Amount 
 INNER JOIN Food.Food F ON F.FoodID = Amount.FoodID
 ORDER BY Amount.Total DESC
+/*------------------------------------------------
+Query 9
+Returns the best rank food according to the amount
+*/
+DECLARE @rank INT = 50
+SELECT TOP(@rank) F.FoodID, F.Discription, RANK() OVER(ORDER BY Amount.Total DESC) AS [RankOfFood] 
+FROM 
+( 
+    SELECT TOP(@rank) A.FoodID, SUM(A.Amount) AS Total 
+    FROM Food.Amount A 
+        INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID 
+        INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID 
+    GROUP BY A.FoodID ORDER BY Total DESC
+) AS Amount 
+    INNER JOIN Food.Food F ON F.FoodID = Amount.FoodID 
+ORDER BY Amount.Total DESC
+/*------------------------------------------------
+Query 10
+Returns everything
+*/
+SELECT * 
+FROM Food.Category C 
+    INNER JOIN Food.FoodCategoryL FCL ON FCL.CategoryID = C.CategoryID 
+    INNER JOIN Food.Food F ON F.FoodID = FCL.FoodID 
+    INNER JOIN Food.Amount A ON A.FoodID = F.FoodID 
+    INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID 
+    INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID
+/*------------------------------------------------
+Query 11
+Updates the food table
+*/
+DECLARE @name NVARCHAR(50) = "name", @foodID INT = 0
+UPDATE Food.Food 
+SET 
+    [Name] = @name
+    WHERE FoodID = @foodId 
+SELECT *
+FROM Food.Food
+/*------------------------------------------------
+Query 12
+returns food with the largest amount of protein
+*/
+DECLARE @low INT = 0, @high INT = 0, @rank INT = 50
+WITH Calories(Discription, Amount) AS 
+(
+    SELECT F.Discription, A.Amount 
+    FROM FOOD.Amount A 
+    INNER JOIN FOOD.Measurement M ON M.MeasurementID = A.MeasurementID 
+    INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID 
+    WHERE M.MeasurementID = 0 AND A.Amount BETWEEN @low AND @high
+) 
+SELECT TOP(@rank) CAL.Discription AS 'FoodName', CAL.Amount AS 'Calories',
+     N.NutrientName, A.Amount 
+FROM FOOD.Nutrient N 
+    INNER JOIN FOOD.Amount A ON A.NutrientID = N.NutrientID 
+    INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID 
+    INNER JOIN FOOD.FoodCategoryL FCL ON FCL.FoodID = F.FoodID 
+    INNER JOIN FOOD.Category C ON C.CategoryID = FCL.CategoryID 
+    INNER JOIN FOOD.Measurement M ON M.MeasurementID = A.MeasurementID 
+    INNER JOIN Calories CAL ON CAL.Discription = F.Discription 
+WHERE N.NutrientID ="+ NutrientID + " AND A.Amount IS NOT NULL 
+ORDER BY A.Amount DESC
