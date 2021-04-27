@@ -48,6 +48,11 @@ namespace CISFoodData
         private void Query3_Click(object sender, EventArgs e)
         {
          
+                if (textBox1.Text.Equals(""))
+                {
+                    MessageBox.Show("User must enter FoodID");
+                    return;
+                }
                 connectionString.Open();
                 int FoodID = Convert.ToInt32(textBox1.Text);
                 var adp = new SqlDataAdapter("Select N.NutrientName, A.Amount, M.UnitMeasurement From Food.Amount A Inner join Food.Nutrient N ON N.NutrientID = A.NutrientID Inner Join Food.Measurement M ON M.MeasurementID = A.MeasurementID Where A.FoodID = " + FoodID + " and A.Amount Is Not Null", connectionString);
@@ -59,6 +64,11 @@ namespace CISFoodData
 
         private void Query4_Click_1(object sender, EventArgs e)
         {
+            if (textBox2.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter CategoryID");
+                return;
+            }
             connectionString.Open();
             int CategoryID = Convert.ToInt32(textBox2.Text);
             var adp = new SqlDataAdapter("Select C.CategoryName, F.Discription From Food.Category C Inner Join Food.FoodCategoryL L ON L.CategoryID = C.CategoryID Inner Join Food.Food F ON F.FoodID = L.FoodID Where C.CategoryID = " + CategoryID + " Group By CategoryName, Discription", connectionString);
@@ -70,6 +80,11 @@ namespace CISFoodData
 
         private void Query5_Click(object sender, EventArgs e)
         {
+            if (textBox4.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter rank");
+                return;
+            }
             connectionString.Open();
             int NutrientID = Convert.ToInt32(textBox3.Text);
             var adp = new SqlDataAdapter("Select Top(100) F.Discription ,N.NutrientName, A.Amount, M.UnitMeasurement From Food.Nutrient N Inner Join Food.Amount A ON A.NutrientID = N.NutrientID Inner Join Food.Food F ON F.FoodID = A.FoodID Inner Join Food.Measurement M ON M.MeasurementID = A.MeasurementID  Where N.NutrientID = " + NutrientID + " Order By A.Amount DESC", connectionString);
@@ -81,6 +96,21 @@ namespace CISFoodData
 
         private void Query6_Click(object sender, EventArgs e)
         {
+            if (textBox2.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter CategoryID");
+                return;
+            }
+            if (textBox3.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter NutrientID");
+                return;
+            }
+            if (textBox4.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter rank");
+                return;
+            }
             connectionString.Open();
             int CategoryID = Convert.ToInt32(textBox2.Text);
             int NutrientID = Convert.ToInt32(textBox3.Text);
@@ -94,6 +124,21 @@ namespace CISFoodData
 
         private void Query7_Click(object sender, EventArgs e)
         {
+            if (textBox4.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter rank");
+                return;
+            }
+            if (textBox5.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter Low Value");
+                return;
+            }
+            if (textBox6.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter High value");
+                return;
+            }
             connectionString.Open();
             int LOW = Convert.ToInt32(textBox5.Text);
             int HIGH = Convert.ToInt32(textBox6.Text);
@@ -107,6 +152,16 @@ namespace CISFoodData
 
         private void Query8_Click(object sender, EventArgs e)
         {
+            if (textBox2.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter categoryID");
+                return;
+            }
+            if (textBox3.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter NutrientID");
+                return;
+            }
             connectionString.Open();
             int CategoryID = Convert.ToInt32(textBox2.Text);
             int NutrientID = Convert.ToInt32(textBox3.Text);
@@ -119,8 +174,14 @@ namespace CISFoodData
 
         private void Query9_Click(object sender, EventArgs e)
         {
+            if(textBox4.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter rank");
+                return;
+            }
             connectionString.Open();
             int rank = Convert.ToInt32(textBox4.Text);
+            
             var adp = new SqlDataAdapter("SELECT TOP("+ rank + ") F.FoodID, F.Discription, RANK() OVER(ORDER BY Amount.Total DESC) AS [RankOfFood] FROM ( SELECT TOP(" + rank+ ") A.FoodID, SUM(A.Amount) AS Total FROM Food.Amount A INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID GROUP BY A.FoodID ORDER BY Total DESC) AS Amount INNER JOIN Food.Food F ON F.FoodID = Amount.FoodID ORDER BY Amount.Total DESC", connectionString);
             var dt = new DataTable();
             adp.Fill(dt);
@@ -140,6 +201,16 @@ namespace CISFoodData
 
         private void Query11_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter FoodID");
+                return;
+            }
+            if (textBox7.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter Food name");
+                return;
+            }
             connectionString.Open();
             int foodID = Convert.ToInt32(textBox1.Text);
             string name = Convert.ToString(textBox7.Text);
@@ -152,6 +223,26 @@ namespace CISFoodData
 
         private void Query12_Click(object sender, EventArgs e)
         {
+            if (textBox4.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter rank");
+                return;
+            }
+            if (textBox5.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter Low value");
+                return;
+            }
+            if (textBox6.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter High value");
+                return;
+            }
+            if (textBox3.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter  nutrientID");
+                return;
+            }
             connectionString.Open();
             int rank = Convert.ToInt32(textBox4.Text);
             int LOW = Convert.ToInt32(textBox5.Text);
