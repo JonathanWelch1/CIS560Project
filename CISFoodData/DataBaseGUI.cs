@@ -47,8 +47,14 @@ namespace CISFoodData
         /// <param name="e"></param>
         private void Query2_Click(object sender, EventArgs e)
         {
+            if(textBox7.Text.Equals(""))
+            {
+                MessageBox.Show("User must enter a term to search by");
+                return;
+            }
             connectionString.Open();
-            var adp = new SqlDataAdapter("Select F.FoodID, F.Discription From Food.Food F", connectionString);
+            var adp = new SqlDataAdapter(
+                "Select * From Food.Food F WHERE F.Discription LIKE '" + textBox7.Text + "%'", connectionString);
             var dt = new DataTable();
             adp.Fill(dt);
             dataGridView.DataSource = dt;
@@ -106,19 +112,15 @@ namespace CISFoodData
         /// <param name="e"></param>
         private void Query5_Click(object sender, EventArgs e)
         {
-            if (textBox4.Text.Equals(""))
-            {
-                MessageBox.Show("User must enter rank");
-                return;
-            }
+           
             connectionString.Open();
-            int NutrientID = Convert.ToInt32(textBox3.Text);
-            var adp = new SqlDataAdapter("Select Top(100) F.Discription ,N.NutrientName, A.Amount, M.UnitMeasurement From Food.Nutrient N Inner Join Food.Amount A ON A.NutrientID = N.NutrientID Inner Join Food.Food F ON F.FoodID = A.FoodID Inner Join Food.Measurement M ON M.MeasurementID = A.MeasurementID  Where N.NutrientID = " + NutrientID + " Order By A.Amount DESC", connectionString);
+            var adp = new SqlDataAdapter("SELECT C.CategoryName, DerivedTable.TotalFoods, DerivedTable.AverageCalories, RANK() OVER(ORDER BY DerivedTable.AverageCalories) [Rank] FROM (SELECT FCL.CategoryID, COUNT(FCL.FoodID), ROUND(SUM(A.Amount) / COUNT(FCL.FoodID), 2)  FROM Food.Amount A INNER JOIN Food.FoodCategoryL FCL ON FCL.FoodID = A.FoodID WHERE A.NutrientID = 0GROUP BY FCL.CategoryID ) AS DerivedTable(CategoryID, TotalFoods, AverageCalories) INNER JOIN Food.Category C ON C.CategoryID = DerivedTable.CategoryID", connectionString); 
             var dt = new DataTable();
             adp.Fill(dt);
             dataGridView.DataSource = dt;
             connectionString.Close();
-        }
+
+             }
         /// <summary>
         /// Button Click event for query 6.
         /// </summary>
@@ -145,7 +147,7 @@ namespace CISFoodData
             int CategoryID = Convert.ToInt32(textBox2.Text);
             int NutrientID = Convert.ToInt32(textBox3.Text);
             int rank = Convert.ToInt32(textBox4.Text);
-            var adp = new SqlDataAdapter("SELECT TOP("+rank+ ")F.Discription AS 'FoodName', N.NutrientName, A.Amount FROM FOOD.Nutrient N INNER JOIN FOOD.Amount A ON A.NutrientID = N.NutrientID INNER JOIN FOOD.Food F ON F.FoodID = A.FoodID INNER JOIN FOOD.FoodCategoryL FCL ON FCL.FoodID = F.FoodID INNER JOIN FOOD.Category C ON C.CategoryID = FCL.CategoryID WHERE C.CategoryID =" + CategoryID + "AND N.NutrientID =" + NutrientID+ "ORDER BY A.Amount DESC", connectionString);
+            var adp = new SqlDataAdapter("WITH FoodofCategory(FoodID, Discription, CategoryName) AS (SELECT FD.FoodID, FD.Discription, C.CategoryName FROM Food.Category C INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID INNER JOIN Food.Food FD ON FD.FoodID = L.FoodID WHERE C.CategoryID =" + CategoryID + "GROUP BY FD.FoodID, FD.Discription, C.CategoryName ) SELECT TOP ("+ rank+") F.CategoryName, F.Discription, A.Amount, M.UnitMeasurement FROM FoodofCategory F INNER JOIN Food.Amount A ON A.FoodID = F.FoodID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID WHERE N.NutrientID = " + NutrientID + "ORDER BY A.Amount DESC", connectionString);
             var dt = new DataTable();
             adp.Fill(dt);
             dataGridView.DataSource = dt;
@@ -192,20 +194,9 @@ namespace CISFoodData
         /// <param name="e"></param>
         private void Query8_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text.Equals(""))
-            {
-                MessageBox.Show("User must enter categoryID");
-                return;
-            }
-            if (textBox3.Text.Equals(""))
-            {
-                MessageBox.Show("User must enter NutrientID");
-                return;
-            }
+    
             connectionString.Open();
-            int CategoryID = Convert.ToInt32(textBox2.Text);
-            int NutrientID = Convert.ToInt32(textBox3.Text);
-            var adp = new SqlDataAdapter("WITH FoodofCategory(FoodID, Discription, CategoryName) AS (SELECT FD.FoodID, FD.Discription, C.CategoryName FROM Food.Category C INNER JOIN Food.FoodCategoryL L ON L.CategoryID = C.CategoryID INNER JOIN Food.Food FD ON FD.FoodID = L.FoodID WHERE C.CategoryID =" + CategoryID+ "GROUP BY FD.FoodID, FD.Discription, C.CategoryName ) SELECT TOP 50 F.CategoryName, F.Discription, A.Amount, M.UnitMeasurement FROM FoodofCategory F INNER JOIN Food.Amount A ON A.FoodID = F.FoodID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID WHERE N.NutrientID = " + NutrientID + "ORDER BY A.Amount DESC", connectionString);
+            var adp = new SqlDataAdapter("SELECT N.NutrientID, N.NutrientName, M.UnitMeasurement FROM Food.Amount A INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID GROUP BY N.NutrientID, N.NutrientName, M.UnitMeasurement", connectionString);
             var dt = new DataTable();
             adp.Fill(dt);
             dataGridView.DataSource = dt;
@@ -240,7 +231,7 @@ namespace CISFoodData
         private void Query10_Click(object sender, EventArgs e)
         {
             connectionString.Open();
-            var adp = new SqlDataAdapter("SELECT * FROM Food.Category C Inner join Food.FoodCategoryL FCL ON FCL.CategoryID = C.CategoryID Inner join Food.Food F ON F.FoodID = FCL.FoodID INNER JOIN Food.Amount A ON A.FoodID = F.FoodID INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID", connectionString);
+            var adp = new SqlDataAdapter("SELECT C.CategoryName, F.Discription, F.Name, N.NutrientName, M.UnitMeasurement FROM Food.Category C Inner join Food.FoodCategoryL FCL ON FCL.CategoryID = C.CategoryID Inner join Food.Food F ON F.FoodID = FCL.FoodID INNER JOIN Food.Amount A ON A.FoodID = F.FoodID INNER JOIN Food.Measurement M ON M.MeasurementID = A.MeasurementID INNER JOIN Food.Nutrient N ON N.NutrientID = A.NutrientID", connectionString);
             var dt = new DataTable();
             adp.Fill(dt);
             dataGridView.DataSource = dt;
@@ -310,5 +301,6 @@ namespace CISFoodData
             dataGridView.DataSource = dt;
             connectionString.Close();
         }
+
     }
 }
